@@ -15,13 +15,15 @@ export const usePagePicker = () => {
     watchMouseLeave(target);
   });
 
-  document.body.addEventListener("contextmenu", (ev) => {
-    ev.preventDefault();
+  document.body.addEventListener("contextmenu", (ev: MouseEvent) => {
     const target = ev.target as HTMLDivElement;
     if (!target) return;
     if (!ev.shiftKey) return;
+    ev.preventDefault();
 
-    useCustomContextMenu(target);
+    const position = { left: ev.clientX, top: ev.clientY };
+
+    useCustomContextMenu(target, position);
   });
 
   const watchMouseLeave = (target: HTMLDivElement) => {
