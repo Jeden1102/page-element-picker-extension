@@ -8,7 +8,7 @@
     "build": "npm run build:content && npm run build:popup",
     "clean": "rimraf dist",
     "copy:static": "copyfiles manifest.json assets/**/* dist",
-    "copy:css": "copyfiles assets/**/*.css dist",
+    "copy:css": "copyfiles assets/*.css dist",
     "dist": "npm run clean && npm run build && npm run copy:static && npm run copy:css",
     "lint": "eslint --ext .ts,.tsx ./src",
     "test": "jest -c ./config/jest.config.js"

@@ -23,6 +23,7 @@ export const usePagePicker = () => {
 
     const position = { left: ev.clientX, top: ev.clientY };
 
+    target.classList.add("picker-active");
     useCustomContextMenu(target, position);
   });
 
