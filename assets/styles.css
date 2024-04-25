@@ -1,0 +1,6 @@
+.picker-hovered {
+  border: 2px solid #151522 !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
