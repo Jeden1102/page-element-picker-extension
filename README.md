@@ -1,14 +1,10 @@
-# chrome-extension-ts-starter
+# Page element picker chrome extension.
 
-It is a boilerplate for a Chrome Extension built with TypeScript and Parcel.
 
-## This starter consists of the following parts
+## Extension constist of
 
-* Background script (vanilla TS)
-* Content script (vanilla TS)
-* Options page (Vue.js, Sass)
-* Popup page (Vue.js, Sass)
-* DevTools panel page (React.js, Styled Components)
+* Content script (vanilla TS) - for the element picking logic.
+* Popup page (Vue.js, Sass) - for the information of the extension.
 
 _And, of course, the `./manifest.json` file describing its configuration._
 
@@ -17,7 +13,6 @@ _And, of course, the `./manifest.json` file describing its configuration._
 * Node.js >=12.0.0
 * NPM >= 6.0.0
 
-_Most probably it will work with earlier versions too but I didn't test it._
 
 ## Testing
 
