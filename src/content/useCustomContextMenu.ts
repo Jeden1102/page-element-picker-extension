@@ -1,3 +1,5 @@
+import { useCustomContextMenuContent } from "./useCustomConxtextMenuContent";
+
 interface Position {
     left: number;
     top: number;
@@ -24,6 +26,7 @@ export const useCustomContextMenu = (
         document.body.appendChild(div);
 
         contextMenu = div;
+        useCustomContextMenuContent(target);
     };
 
     const toggleBodyScroll = () => {
@@ -32,7 +35,7 @@ export const useCustomContextMenu = (
 
     const closeContextMenu = () => {
         if (!contextMenu) return;
-        
+
         toggleBodyScroll();
         contextMenu.remove();
         target.classList.remove("picker-active");
