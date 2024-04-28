@@ -1,8 +1,10 @@
 export const useCustomContextMenuContent = (target: HTMLDivElement) => {
   const scrapeOptions = {
-    full: "Whole element",
-    content: "Element content",
     attributes: [] as string[],
+    others: {
+      full: "Whole element",
+      content: "Element content",
+    },
   };
 
   const getTargetAttributes = () => {
@@ -21,11 +23,11 @@ export const useCustomContextMenuContent = (target: HTMLDivElement) => {
         `;
   };
 
-  const scrapeOption = (option: string) => {
+  const scrapeOption = (option: string, optionLabel?: string) => {
     return `
-    <div class="scrape-option">
-    <input id="${option}" type="checkbox/>
-    <label for="${option}">${option}</label>
+    <div class="scrape-options__option">
+    <input id="${option}" type="checkbox"/>
+    <label for="${option}">${optionLabel ? optionLabel : option}</label>
     </div>
     `;
   };
@@ -39,6 +41,33 @@ export const useCustomContextMenuContent = (target: HTMLDivElement) => {
     return content;
   };
 
-  const scrapeOptions
+  const scrapeOptionOthersContent = () => {
+    let content = "";
 
+    for (const [key, value] of Object.entries(scrapeOptions.others)) {
+      content += scrapeOption(key, value);
+    }
+
+    return content;
+  };
+
+  const actions = () => {
+    return `
+        <div class="scrape-btns">
+        <button class="scrape-btn save">Save scraping</button>
+        <button class="scrape-btn cancel">Cancel</button>
+        </div>
+        `;
+  };
+
+  const template = `
+    ${heading()}
+    <div class="scrape-options">
+    ${scrapeOptionAttributesContent()}
+    ${scrapeOptionOthersContent()}
+    </div>
+    ${actions()}
+    `;
+
+  return template;
 };
