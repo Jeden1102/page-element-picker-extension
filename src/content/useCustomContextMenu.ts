@@ -16,17 +16,16 @@ export const useCustomContextMenu = (
         const div = document.createElement("div");
         div.classList.add(CONTEXT_MENU_CLASS);
 
-        div.innerHTML = `
-    <p>Siemka</p>
-    `;
-
         div.style.left = `${position.left}px`;
         div.style.top = `${position.top}px`;
+
+        const content = useCustomContextMenuContent(target);
+
+        div.innerHTML = content;
 
         document.body.appendChild(div);
 
         contextMenu = div;
-        useCustomContextMenuContent(target);
     };
 
     const toggleBodyScroll = () => {
