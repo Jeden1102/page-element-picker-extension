@@ -7,8 +7,8 @@
       The extension is active.
     </p>
     <p>
-      To select and element from the page, press 'alt', hover over an element
-      and left click.
+      To select an element from the page, press 'shift', hover over an element
+      and right click.
     </p>
     <p>
       An pop-up will appear and allow you to extract specific element or its
