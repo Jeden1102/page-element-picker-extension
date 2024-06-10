@@ -98,7 +98,7 @@ export const useCustomContextMenu = (
 
     if (formValues.length === 0) return;
 
-    saveToLocalStorage(formValues);
+    saveToLocalStorage(formValues, formData.get("key") as string);
     showSuccessMessage();
   };
 
@@ -107,11 +107,12 @@ export const useCustomContextMenu = (
    * format.
    * @param {string[]} formValues - The `formValues` parameter in the `saveToLocalStorage` function is an
    * array of strings that contains the values from a form.
+   * @param {string} key - Picker key.
    */
-  const saveToLocalStorage = (formValues: string[]) => {
+  const saveToLocalStorage = (formValues: string[], key: string) => {
     localStorage.removeItem("scrape-object");
     const savedPicker = {
-      uri: window.location.href,
+      key,
       content: formValues,
       selector: getPath(target),
     };

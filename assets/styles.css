@@ -172,3 +172,10 @@ p {
 .scrape-options__option *:after {
   box-sizing: inherit;
 }
+
+input[type="text"] {
+  padding: 6px;
+  border: none;
+  outline: none;
+  color: black;
+}

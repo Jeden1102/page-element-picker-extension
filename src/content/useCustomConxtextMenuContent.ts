@@ -33,6 +33,10 @@ export const useCustomContextMenuContent = (target: HTMLDivElement) => {
         `;
   };
 
+  const scrapeInput = () => {
+    return `<label>Scrape key</label><input type='text' name='key'/>`;
+  };
+
   /**
    * The `scrapeOption` function generates HTML markup for a checkbox option with an optional label.
    * @param {string} option - The `option` parameter in the `scrapeOption` function represents the value
@@ -105,6 +109,7 @@ export const useCustomContextMenuContent = (target: HTMLDivElement) => {
     <form class="scrape-form">
       ${heading()}
       <div class="scrape-options">
+        ${scrapeInput()}
         ${scrapeOptionAttributesContent()}
         ${scrapeOptionOthersContent()}
       </div>
