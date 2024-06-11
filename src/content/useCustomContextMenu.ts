@@ -109,14 +109,16 @@ export const useCustomContextMenu = (
    * array of strings that contains the values from a form.
    * @param {string} key - Picker key.
    */
-  const saveToLocalStorage = (formValues: string[], key: string) => {
-    localStorage.removeItem("scrape-object");
-    const savedPicker = {
-      key,
-      content: formValues,
-      selector: getPath(target),
-    };
-    localStorage.setItem("scrape-object", JSON.stringify(savedPicker));
+  const saveToLocalStorage = async (formValues: string[], key: string) => {
+    await navigator.clipboard.writeText("");
+    await navigator.clipboard.writeText(
+      JSON.stringify({
+        key,
+        content: formValues,
+        selector: getPath(target),
+        source: "picker",
+      })
+    );
   };
 
   /**
